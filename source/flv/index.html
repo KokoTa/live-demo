@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>flv.js</title>
+  <script src="./flv.js"></script>
+</head>
+
+<body>
+  <video id="video"></video>
+  <script>
+    // 该库用于支持 http-flv 格式，由于自己的源 windows 下只支持 rtmp 和 hls，所以这里找外源来测试
+    if (flvjs.isSupported()) {
+      var video = document.getElementById('video');
+      var flvPlayer = flvjs.createPlayer({
+        type: 'flv',
+        url: 'xxx.flv'
+      });
+      flvPlayer.attachMediaElement(video);
+      flvPlayer.load();
+      flvPlayer.play();
+    }
+  </script>
+</body>
+
+</html>
